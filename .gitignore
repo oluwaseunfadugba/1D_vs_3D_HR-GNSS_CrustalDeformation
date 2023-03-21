@@ -1,0 +1,6 @@
+*.rfile
+*.csv
+*.svg
+*fig8_surf_magvel_snapshots_big.png
+*surf_magvel_png
+*.dat
