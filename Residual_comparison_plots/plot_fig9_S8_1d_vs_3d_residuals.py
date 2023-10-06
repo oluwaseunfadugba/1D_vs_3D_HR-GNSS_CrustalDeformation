@@ -84,20 +84,21 @@ data =np.array([[iba_src_1d_025Hz,tcb10[0],'MudPy 1D SRCMOD','o'],
                 [iba_src_3d_025Hz_tal,tcb10[1],'SW4 3D SCRMOD','x']],dtype=object)
 
 rupt_no = [5,9]
+fontsize = 140
 funcs.plot_compare_IM_res(axes = axes[0,0],data=data,y_axis="pgd_res",ylim=[-0.5,2],n_rupt=rupt_no,
-                        title='Ibaraki 2011 (SRCMOD)',title_pad = 400,subplt_label='A',
+                        title='Ibaraki 2011 (SRCMOD)',title_pad = 400,subplt_label='A',fontsize=fontsize,
                         tag='2a_pgd_1d_3d_ibaraki_srcmod',xticks=[50,250,450,650,850,1050])              
                                                                                                                                    
 funcs.plot_compare_IM_res(axes = axes[1,0],data=data,y_axis="tPGD_res",ylim=[-110,150],n_rupt=rupt_no,
-                    xticks=[50,250,450,650,850,1050],subplt_label='E',
+                    xticks=[50,250,450,650,850,1050],subplt_label='E',fontsize=fontsize,
                     tag='2b_tpgd_1d_3d_ibaraki_srcmod',ylabel='Residual (s)')
 
 funcs.plot_compare_IM_res(axes = axes[2,0],data=data,y_axis="sd_res",n_rupt=rupt_no,
-                    xticks=[50,250,450,650,850,1050],subplt_label='I',
+                    xticks=[50,250,450,650,850,1050],subplt_label='I',fontsize=fontsize,
                     tag='2c_static_1d_3d_ibaraki_srcmod',ylim=[-3,4])
 
 funcs.plot_compare_IM_res(axes = axes[3,0],data=data,y_axis="xcorr",n_rupt=rupt_no,ylim=[0.6,1],
-                    xticks=[50,250,450,650,850,1050],xlabel='distance (km)',
+                    xticks=[50,250,450,650,850,1050],xlabel='distance (km)',fontsize=fontsize,
                     tag='2d_xcorr_1d_3d_ibaraki_srcmod',subplt_label='M')
 
 
@@ -107,16 +108,16 @@ data =np.array([[miy_usgs_1d_025Hz,tcb10[0],'MudPy 1D HAYES','//'],
                 [miy_usgs_3d_025Hz_las,tcb10[1],'SW4 3D HAYES','x']],dtype=object)
 rupt_no = [0,1]
 xticks = [150,350,550,750,950,1250]
-funcs.plot_compare_IM_res(axes = axes[0,1],data=data,y_axis="pgd_res",ylim=[-2,3],n_rupt=rupt_no,
+funcs.plot_compare_IM_res(axes = axes[0,1],data=data,y_axis="pgd_res",ylim=[-2,3],n_rupt=rupt_no,fontsize=fontsize,
                     title='Miyagi 2011 (Hayes)',xticks=xticks,title_pad = 400,subplt_label='B')
 
-funcs.plot_compare_IM_res(axes = axes[1,1],data=data,y_axis="tPGD_res",ylim=[-250,100],
+funcs.plot_compare_IM_res(axes = axes[1,1],data=data,y_axis="tPGD_res",ylim=[-250,100],fontsize=fontsize,
                     n_rupt=rupt_no,ylabel='Residual (s)',xticks=xticks,subplt_label='F')
 
-funcs.plot_compare_IM_res(axes = axes[2,1],data=data,y_axis="sd_res",n_rupt=rupt_no,
+funcs.plot_compare_IM_res(axes = axes[2,1],data=data,y_axis="sd_res",n_rupt=rupt_no,fontsize=fontsize,
                     ylim=[-5,7],xticks=xticks,subplt_label='J')
 
-funcs.plot_compare_IM_res(axes = axes[3,1],data=data,y_axis="xcorr",n_rupt=rupt_no,ylim=[0.4,1],
+funcs.plot_compare_IM_res(axes = axes[3,1],data=data,y_axis="xcorr",n_rupt=rupt_no,ylim=[0.4,1],fontsize=fontsize,
                     xticks=xticks,xlabel='distance (km)',subplt_label='N')
 
 
@@ -126,16 +127,16 @@ data =np.array([[iwa_zh_1d_025Hz,tcb10[0],'MudPy 1D ZHENG','//'],
                 [iwa_zh_3d_025Hz_las,tcb10[1],'SW4 3D ZHENG','x']],dtype=object)
 rupt_no = [0,1]
 xticks = [50,250,450,650,850,1050,1250,1450]
-funcs.plot_compare_IM_res(axes = axes[0,2],data=data,y_axis="pgd_res",ylim=[-1,3.5],
+funcs.plot_compare_IM_res(axes = axes[0,2],data=data,y_axis="pgd_res",ylim=[-1,3.5],fontsize=fontsize,
                     title='Iwate 2011 (Zheng)',xticks=xticks,title_pad = 400,subplt_label='C')
 
-funcs.plot_compare_IM_res(axes = axes[1,2],data=data,y_axis="tPGD_res",ylim=[-200,150],
+funcs.plot_compare_IM_res(axes = axes[1,2],data=data,y_axis="tPGD_res",ylim=[-200,150],fontsize=fontsize,
                     ylabel='Residual (s)',xticks=xticks,subplt_label='G')
 
-funcs.plot_compare_IM_res(axes = axes[2,2],data=data,y_axis="sd_res",
+funcs.plot_compare_IM_res(axes = axes[2,2],data=data,y_axis="sd_res",fontsize=fontsize,
                     ylim=[-2.5,6],xticks=xticks,subplt_label='K')
 
-funcs.plot_compare_IM_res(axes = axes[3,2],data=data,y_axis="xcorr",ylim=[0.4,1],
+funcs.plot_compare_IM_res(axes = axes[3,2],data=data,y_axis="xcorr",ylim=[0.4,1],fontsize=fontsize,
                     xticks=xticks,xlabel='distance (km)',subplt_label='O')
 
 #%% tokachi 2003 usgs talapas
@@ -143,16 +144,16 @@ data =np.array([[tok_usgs_1d_025Hz,tcb10[0],'MudPy 1D USGS','//'],
                 [tok_usgs_3d_025Hz_tal,tcb10[1],'SW4 3D USGS','x']],dtype=object)
 rupt_no = [0,1]
 xticks = [50,150,250,350,450,550,650,750]
-funcs.plot_compare_IM_res(axes = axes[0,3],data=data,y_axis="pgd_res",ylim=[-2,1.2],n_rupt=rupt_no,
+funcs.plot_compare_IM_res(axes = axes[0,3],data=data,y_axis="pgd_res",ylim=[-2,1.2],n_rupt=rupt_no,fontsize=fontsize,
                     title='Tokachi 2003 (Hayes)',xticks=xticks,title_pad = 400,subplt_label='D')
 
-funcs.plot_compare_IM_res(axes = axes[1,3],data=data,y_axis="tPGD_res",ylim=[-25,75],
+funcs.plot_compare_IM_res(axes = axes[1,3],data=data,y_axis="tPGD_res",ylim=[-25,75],fontsize=fontsize,
                     n_rupt=rupt_no,ylabel='Residual (s)',xticks=xticks,subplt_label='H')
 
-funcs.plot_compare_IM_res(axes = axes[2,3],data=data,y_axis="sd_res",n_rupt=rupt_no, 
+funcs.plot_compare_IM_res(axes = axes[2,3],data=data,y_axis="sd_res",n_rupt=rupt_no, fontsize=fontsize,
                     ylim=[-6,3],xticks=xticks,subplt_label='L')
 
-funcs.plot_compare_IM_res(axes = axes[3,3],data=data,y_axis="xcorr",n_rupt=rupt_no,ylim=[0.3,1],
+funcs.plot_compare_IM_res(axes = axes[3,3],data=data,y_axis="xcorr",n_rupt=rupt_no,ylim=[0.3,1],fontsize=fontsize,
                     xticks=xticks,xlabel='distance (km)',subplt_label='P')
 
 #-------------------------------------------------------------------------
@@ -175,11 +176,11 @@ legend_elements.append(Line2D([0],[0], linewidth=20.0, linestyle='-',  color='re
 plt.legend(handles=legend_elements, bbox_to_anchor=(-2.5, -1.05 ), loc='lower left', 
             fontsize=160,frameon=False, ncol=3)
 
-plt.text(-20, -0.15, 'LEGEND', color='k', fontsize=130,fontdict={"weight": "bold"})
-plt.text(-14, 4.57, 'PGD Residuals', color='k', fontsize=160)
-plt.text(-14, 3.47, 'tPGD Residuals', color='k', fontsize=160)
-plt.text(-14, 2.3, 'SD Residuals', color='k', fontsize=160)
-plt.text(-14, 1.15, 'Xcorr Residuals', color='k', fontsize=160)
+plt.text(-20, -0.15, 'LEGEND', color='k', fontsize=fontsize,fontdict={"weight": "bold"})
+plt.text(-14, 4.57, 'PGD Residuals', color='k', fontsize=fontsize+10)
+plt.text(-14, 3.47, 'tPGD Residuals', color='k', fontsize=fontsize+10)
+plt.text(-14, 2.3, 'SD Residuals', color='k', fontsize=fontsize+10)
+plt.text(-14, 1.15, 'Xcorr Residuals', color='k', fontsize=fontsize+10)
 
 
 plt.show()

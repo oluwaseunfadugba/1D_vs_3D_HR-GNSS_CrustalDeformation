@@ -116,22 +116,23 @@ xticks = np.array([['ibaraki_srcmod',      'IB_S'],
 kstest_ff_path_='/Users/oluwaseunfadugba/Documents/Projects/TsE_ValerieDiego/'+\
     'TsE_1D_vs_3D/Paper_Figures/Comparing_kstest_Residuals_with_median_diff/'
     
-
+fontsize = 150
+lw = 16
 # plotting mean difference residuals
-funcs.plot_ks_test_all_w_median(axes=axes[0,0],attribute='pgd_res',title_pad = 50,
-                            subplt_label='A',xticks=xticks,title='PGD Residual',
+funcs.plot_ks_test_all_w_median(axes=axes[0,0],attribute='pgd_res',title_pad = 50,lw = lw,
+                            subplt_label='A',xticks=xticks,title='PGD Residual',fontsize=fontsize,
                             kstest_ff_path=kstest_ff_path_,ylabel='ln')
 
-funcs.plot_ks_test_all_w_median(axes=axes[0,1],attribute='tPGD_res',title_pad = 50,
-                            subplt_label='B',xticks=xticks,title='tPGD Residual',
+funcs.plot_ks_test_all_w_median(axes=axes[0,1],attribute='tPGD_res',title_pad = 50,lw = lw,
+                            subplt_label='B',xticks=xticks,title='tPGD Residual',fontsize=fontsize,
                             kstest_ff_path=kstest_ff_path_,ylabel='s')
 
-funcs.plot_ks_test_all_w_median(axes=axes[1,0],attribute='sd_res',title_pad = 50,
-                            subplt_label='C',xticks=xticks,title='SD Residual',
+funcs.plot_ks_test_all_w_median(axes=axes[1,0],attribute='sd_res',title_pad = 50,lw = lw,
+                            subplt_label='C',xticks=xticks,title='SD Residual',fontsize=fontsize,
                             kstest_ff_path=kstest_ff_path_,xlabel='Simulations',ylabel='ln')
 
-funcs.plot_ks_test_all_w_median(axes=axes[1,1],attribute='xcorr',title_pad = 50,
-                            subplt_label='D',xticks=xticks,title='Xcorr',ylabel='value',
+funcs.plot_ks_test_all_w_median(axes=axes[1,1],attribute='xcorr',title_pad = 50,fontsize=fontsize,
+                            subplt_label='D',xticks=xticks,title='Xcorr',ylabel='value',lw = lw,
                             kstest_ff_path=kstest_ff_path_,xlabel='Simulations')
 
 
@@ -143,10 +144,10 @@ legend_elements = []
 legend_elements.append(Line2D([0],[0], linewidth=20.0, linestyle=ls[0], color=tcb10[0], 
                               alpha=1.0,label='ks-stat'))
 
-legend_elements.append(Line2D([0],[0], linewidth=20.0, linestyle=ls[0], color=tcb10[0], 
+legend_elements.append(Line2D([0],[0], linewidth=20.0, linestyle=ls[1], color=tcb10[0], 
                               alpha=1.0,label='D Critical'))
 
-legend_elements.append(Line2D([0],[0], linewidth=20.0, linestyle=ls[1], color=tcb10[1], 
+legend_elements.append(Line2D([0],[0], linewidth=20.0, linestyle=ls[0], color=tcb10[1], 
                               alpha=1.0,label='p-value'))
 
 legend_elements.append(Line2D([0],[0], linewidth=20.0, linestyle=ls[1], color=tcb10[1], 

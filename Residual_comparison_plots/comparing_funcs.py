@@ -210,7 +210,7 @@ def plot_median_residual(axes,models,attribute='pgd_res',title=None,title_pad = 
 def plot_ks_test_all_w_median(axes,attribute='pgd_res',title=None,title_pad = 0,
                          pltlegend = 0,xlabel=None,ylabel = 'ln',pvalue = 0,
                          kstest_ff_path='',fontsize=130,xticks=None,yticks=None,
-                         subplt_label=None,subplt_labelpos=[-0.2, 1.1],
+                         subplt_label=None,subplt_labelpos=[-0.2, 1.1],lw = 12,
                          draw_rec = 1,rec_neg=1,rec_color='gray',rec_alpha = 0.15):
     
     import pandas as pd
@@ -233,7 +233,6 @@ def plot_ks_test_all_w_median(axes,attribute='pgd_res',title=None,title_pad = 0,
                                             df['ks_Dcrit'].to_numpy(),
                                             df['ks_pval'].to_numpy()))))*1)/1
     factor = 1.5
-    lw = 12
     
     #plt.style.use('tableau-colorblind10') #('seaborn-colorblind') #
     axes.set_title(title,fontsize=fontsize+15,fontdict={"weight": "bold"},pad =title_pad)
@@ -248,7 +247,7 @@ def plot_ks_test_all_w_median(axes,attribute='pgd_res',title=None,title_pad = 0,
     
     #print(df['tag'][0])
     axes.tick_params(axis='x',labelsize=fontsize)#,labelrotation=60,length=20, width=3)
-    plt.setp(axes.get_xticklabels(),rotation=30, ha="right",rotation_mode="anchor")
+    plt.setp(axes.get_xticklabels(),rotation=45, ha="right",rotation_mode="anchor")
     
     if xticks.any():
         # get the x-tick positions and labels

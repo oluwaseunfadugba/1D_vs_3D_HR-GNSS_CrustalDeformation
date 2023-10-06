@@ -29,6 +29,10 @@ start = time.time()
 cwd = '/Users/oluwaseunfadugba/Documents/Projects/TsE_ValerieDiego/TsE_1D_vs_3D/1D_vs_3D_HR-GNSS_CrustalDeformation/rupture_figs/'
 os.chdir(cwd)
 
+from matplotlib import cm
+new_cmap = cm.get_cmap('rainbow', 9)#OrRd or rainbow
+
+
 #%% extract_rupt_data
 def extract_rupt_data(rupt,slip_percent =-10):
     f=genfromtxt(rupt)
@@ -70,6 +74,11 @@ def plot_4srf(rupt_name,rupt1,rupt2,rupt3,rupt4,max_slip,title):
     lon3,lat3,x3,y3,slip3 = extract_rupt_data(rupt3,slip_percent =-10)
     lon4,lat4,x4,y4,slip4 = extract_rupt_data(rupt4,slip_percent =-10)
     
+    slip1[slip1>max_slip]=max_slip-.01
+    slip2[slip2>max_slip]=max_slip-.01
+    slip3[slip3>max_slip]=max_slip-.01
+    slip4[slip4>max_slip]=max_slip-.01
+    
     #rupt_name = 'Ibaraki 2011, SRCMOD'
     
     fig = plt.figure(figsize=(50,15), dpi=100)
@@ -85,7 +94,7 @@ def plot_4srf(rupt_name,rupt1,rupt2,rupt3,rupt4,max_slip,title):
    
     ax1 = fig.add_subplot(1, 4,1)
     ax1.tricontour(lon1,lat1, slip1, levels=levels, linewidths=0.01, colors='k')
-    cntr2 = ax1.tricontourf(lon1,lat1, slip1, levels=levels, cmap="viridis") #RdBu_r
+    cntr2 = ax1.tricontourf(lon1,lat1, slip1, levels=levels, cmap=new_cmap) #RdBu_r
     ax1.plot(lon1,lat1, 'ko', ms=ms)
     ax1.set_title('Mean Rupture Model',fontsize=size_title)
     ax1.set_xlabel('Longitude',fontsize=xlabel_size)
@@ -98,7 +107,7 @@ def plot_4srf(rupt_name,rupt1,rupt2,rupt3,rupt4,max_slip,title):
     
     ax2 = fig.add_subplot(1, 4,2)
     ax2.tricontour(lon2,lat2, slip2, levels=levels, linewidths=0.01, colors='k')
-    cntr2 = ax2.tricontourf(lon2,lat2, slip2, levels=levels, cmap="viridis") #RdBu_r
+    cntr2 = ax2.tricontourf(lon2,lat2, slip2, levels=levels, cmap=new_cmap) #RdBu_r
     ax2.plot(lon2,lat2, 'ko', ms=ms)
     ax2.set_title('FQ Model 1',fontsize=size_title)
     ax2.set_xlabel('Longitude',fontsize=xlabel_size)
@@ -110,7 +119,7 @@ def plot_4srf(rupt_name,rupt1,rupt2,rupt3,rupt4,max_slip,title):
     
     ax3 = fig.add_subplot(1, 4,3)
     ax3.tricontour(lon3,lat3, slip3, levels=levels, linewidths=0.01, colors='k')
-    cntr2 = ax3.tricontourf(lon3,lat3, slip3, levels=levels, cmap="viridis") #RdBu_r
+    cntr2 = ax3.tricontourf(lon3,lat3, slip3, levels=levels, cmap=new_cmap) #RdBu_r
     ax3.plot(lon3,lat3, 'ko', ms=ms)
     ax3.set_title('FQ Model 2',fontsize=size_title)
     ax3.set_xlabel('Longitude',fontsize=xlabel_size)
@@ -122,7 +131,7 @@ def plot_4srf(rupt_name,rupt1,rupt2,rupt3,rupt4,max_slip,title):
     
     ax4 = fig.add_subplot(1, 4,4)
     ax4.tricontour(lon4,lat4, slip4, levels=levels, linewidths=0.01, colors='k')
-    cntr2 = ax4.tricontourf(lon4,lat4, slip4, levels=levels, cmap="viridis") #RdBu_r
+    cntr2 = ax4.tricontourf(lon4,lat4, slip4, levels=levels, cmap=new_cmap) #RdBu_r
     ax4.plot(lon4,lat4, 'ko', ms=ms)
     ax4.set_title('FQ Model 3',fontsize=size_title)
     ax4.set_xlabel('Longitude',fontsize=xlabel_size)
@@ -145,6 +154,9 @@ def plot_srf_ptsouce(rupt_name,rupt,max_slip=24):
     lon,lat,x,y,slip = extract_rupt_data(rupt,slip_percent =-10)
     lon2,lat2,x2,y2,slip2 = extract_rupt_data(rupt,slip_percent =0)
     
+    slip[slip>max_slip]=max_slip-.01
+    slip2[slip2>max_slip]=max_slip-.01
+    
     fig = plt.figure(figsize=(40,25), dpi=100)
     fig.suptitle('Source Rupture Model and Point Sources ('+rupt_name+')', fontsize=70)
     
@@ -155,7 +167,7 @@ def plot_srf_ptsouce(rupt_name,rupt,max_slip=24):
     
     ax1 = fig.add_subplot(1, 2,1)
     ax1.tricontour(lon,lat, slip, levels=levels, linewidths=0.01, colors='k')
-    cntr2 = ax1.tricontourf(lon,lat, slip, levels=levels, cmap="viridis") #RdBu_r
+    cntr2 = ax1.tricontourf(lon,lat, slip, levels=levels, cmap=new_cmap) #RdBu_r
     ax1.plot(lon,lat, 'ko', ms=ms)
     ax1.set_title('FQ Model 3',fontsize=xlabel_size+10)
     ax1.set_xlabel('Longitude',fontsize=xlabel_size)
@@ -167,7 +179,7 @@ def plot_srf_ptsouce(rupt_name,rupt,max_slip=24):
     ax1.grid(color = 'k', linestyle = '-', linewidth = 0.5)
     
     ax2 = fig.add_subplot(1, 2,2)
-    ax2.scatter(lon2,lat2,marker='o',c=slip2,s=200,cmap='viridis',vmin=0)#RdBu_r
+    ax2.scatter(lon2,lat2,marker='o',c=slip2,s=200,cmap=new_cmap,vmin=0)#RdBu_r
     ax2.set_ylabel('Latitude',fontsize=xlabel_size)
     ax2.set_xlabel('Longitude',fontsize=xlabel_size)
     ax2.xaxis.set_tick_params(labelsize=xlabel_size,labelrotation=25)
@@ -201,7 +213,7 @@ rupt2 = path+'ibaraki2011_srcmod.000005.rupt' #1
 rupt3 = path+'ibaraki2011_srcmod.000009.rupt' #6
 rupt4 = path+'ibaraki2011_srcmod.000006.rupt' #9
 
-max_slip=25
+max_slip=10 #25
 title = 'Mean Rupture Model and Example FQ MOdels (Ibaraki 2011 SRCMOD)'
 plot_4srf(rupt_name,rupt1,rupt2,rupt3,rupt4,max_slip,title)
 
@@ -222,7 +234,7 @@ rupt2 = path+'ibaraki2011_zheng1.000000.rupt' #1
 rupt3 = path+'ibaraki2011_zheng1.000001.rupt' #6
 rupt4 = path+'ibaraki2011_zheng1.000011.rupt' #9
 
-max_slip=25
+max_slip=10 #25
 title = 'Ibaraki 2011 (Zheng Rupture Model)'
 plot_4srf(rupt_name,rupt1,rupt2,rupt3,rupt4,max_slip,title)
 
@@ -243,7 +255,7 @@ rupt2 = path+'iwate2011_zheng1.000000.rupt' #1
 rupt3 = path+'iwate2011_zheng1.000003.rupt' #6
 rupt4 = path+'iwate2011_zheng1.000004.rupt' #9
 
-max_slip=25
+max_slip=10#25
 title = 'Iwate 2011 (Zheng Rupture Model)'
 plot_4srf(rupt_name,rupt1,rupt2,rupt3,rupt4,max_slip,title)
 
@@ -324,7 +336,7 @@ rupt2 = path+'tokachi2003_srcmod3.000001.rupt' #1
 rupt3 = path+'tokachi2003_srcmod3.000004.rupt' #6
 rupt4 = path+'tokachi2003_srcmod3.000000.rupt' #9
 
-max_slip=20
+max_slip=10#20
 title = 'Tokachi 2003 (SRCMOD3 Rupture Model)'
 plot_4srf(rupt_name,rupt1,rupt2,rupt3,rupt4,max_slip,title)
 

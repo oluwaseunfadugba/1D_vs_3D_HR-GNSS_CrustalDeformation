@@ -101,6 +101,8 @@ tok_usgs_3d_050Hz = home_3D_050Hz + 'flatfile_tokachi2003_usgs_srf3d_talapas_0.4
 fig, axes = plt.subplots(4,3,figsize=(100, 95))
 fig.tight_layout(h_pad=60,w_pad=40)#, w_pad=0.5, h_pad=7.0,rect=[0, 0.15, 0.8, 0.9]) #0, 0.03, 0.85, 0.90]
 
+fontsize = 140
+
 #%% Effect of the upper 30km 3D structure
 data =np.array([[iba_src_1d_025Hz,tcb10[0],'MudPy 1D SRCMOD','/'],
                 [iba_src_3d_025Hz_tal,tcb10[1],'SW4 3D SRCMOD','x'],
@@ -108,13 +110,13 @@ data =np.array([[iba_src_1d_025Hz,tcb10[0],'MudPy 1D SRCMOD','/'],
 
 rupt_no = [5,9]
 xticks = [50,250,450,650,850,1050]
-funcs.plot_compare_IM_res(axes = axes[0,0],data=data,y_axis="pgd_res",ylim=[-0.5,2.1],n_rupt=rupt_no,
+funcs.plot_compare_IM_res(axes = axes[0,0],data=data,y_axis="pgd_res",ylim=[-0.5,2.1],n_rupt=rupt_no,fontsize=fontsize,
                     title='Ibaraki 2011 SRCMOD',title_pad = 550,xticks=xticks,subplt_label='A')
 
-funcs.plot_compare_IM_res(axes = axes[1,0],data=data,y_axis="tPGD_res",ylim=[-150,150],
+funcs.plot_compare_IM_res(axes = axes[1,0],data=data,y_axis="tPGD_res",ylim=[-150,150],fontsize=fontsize,
                     n_rupt=rupt_no,ylabel='Residual (s)',xticks=xticks,subplt_label='D')
 
-funcs.plot_compare_IM_res(axes = axes[2,0],data=data,y_axis="sd_res",n_rupt=rupt_no,
+funcs.plot_compare_IM_res(axes = axes[2,0],data=data,y_axis="sd_res",n_rupt=rupt_no,fontsize=fontsize,
                     ylim=[-3,4],xticks=xticks,subplt_label='G')
 
 funcs.plot_compare_IM_res(axes = axes[3,0],data=data,y_axis="xcorr",n_rupt=rupt_no,
@@ -128,16 +130,16 @@ data =np.array([[miy_zh_1d_025Hz,tcb10[0],'MudPy 1D ZHENG','/'],
 
 rupt_no = [0,3]
 xticks = [150,350,550,750,950]
-funcs.plot_compare_IM_res(axes = axes[0,1],data=data,y_axis="pgd_res",ylim=[-1,3],n_rupt=rupt_no,
+funcs.plot_compare_IM_res(axes = axes[0,1],data=data,y_axis="pgd_res",ylim=[-1,3],n_rupt=rupt_no,fontsize=fontsize,
                     title='Miyagi 2011 ZHENG',xticks=xticks,subplt_label='B',title_pad = 550)
 
-funcs.plot_compare_IM_res(axes = axes[1,1],data=data,y_axis="tPGD_res",ylim=[-250,100],
+funcs.plot_compare_IM_res(axes = axes[1,1],data=data,y_axis="tPGD_res",ylim=[-250,100],fontsize=fontsize,
                     n_rupt=rupt_no,ylabel='Residual (s)',xticks=xticks,subplt_label='E')
 
-funcs.plot_compare_IM_res(axes = axes[2,1],data=data,y_axis="sd_res",n_rupt=rupt_no,
+funcs.plot_compare_IM_res(axes = axes[2,1],data=data,y_axis="sd_res",n_rupt=rupt_no,fontsize=fontsize,
                     ylim=[-4,7],xticks=xticks,subplt_label='H')
 
-funcs.plot_compare_IM_res(axes = axes[3,1],data=data,y_axis="xcorr",n_rupt=rupt_no,
+funcs.plot_compare_IM_res(axes = axes[3,1],data=data,y_axis="xcorr",n_rupt=rupt_no,fontsize=fontsize,
                           ylim=[0.4,1],xticks=xticks,xlabel='distance (km)',subplt_label='K',ylabel='value')
 
 #%% Effect of the upper 30km 3D structure - KSTEST RESULTS
@@ -152,18 +154,18 @@ kstest_ff_path_z30='/Users/oluwaseunfadugba/Documents/Projects/TsE_ValerieDiego/
     
 xticks = [50,250,450,650,850,1050]
 funcs.plot_median_residual(axes=axes[0,2],models=models,attribute='pgd_res',title_pad = 550,
-                           xticks=xticks,yticks=[0,-0.5,-1],subplt_label='C',
+                           xticks=xticks,yticks=[0,-0.5,-1],subplt_label='C',fontsize=fontsize,
                            title='Median Residual Difference',kstest_ff_path=kstest_ff_path_z30)
 
-funcs.plot_median_residual(axes=axes[1,2],models=models,attribute='tPGD_res',
+funcs.plot_median_residual(axes=axes[1,2],models=models,attribute='tPGD_res',fontsize=fontsize,
                            xticks=xticks,yticks=[50,0,-50,-100],subplt_label='F',
                            kstest_ff_path=kstest_ff_path_z30,ylabel='s')
 
-funcs.plot_median_residual(axes=axes[2,2],models=models,attribute='sd_res',
+funcs.plot_median_residual(axes=axes[2,2],models=models,attribute='sd_res',fontsize=fontsize,
                            xticks=xticks,yticks=[1,0,-1,-2,-3],subplt_label='I',
                            kstest_ff_path=kstest_ff_path_z30)
 
-funcs.plot_median_residual(axes=axes[3,2],models=models,attribute='xcorr',rec_neg=0,
+funcs.plot_median_residual(axes=axes[3,2],models=models,attribute='xcorr',rec_neg=0,fontsize=fontsize,
                            xticks=xticks,yticks=[0.1,0,-0.1],subplt_label='L',ylabel='value',
                            kstest_ff_path=kstest_ff_path_z30,xlabel='distance (km)')
 

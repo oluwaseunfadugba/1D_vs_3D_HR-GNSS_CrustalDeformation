@@ -77,7 +77,7 @@ for i in range(len(t)):
 
 cbar_ax = fig.add_axes([0.25, -0.00, 0.5, 0.025])
 cbar=fig.colorbar(im, cax=cbar_ax,orientation="horizontal")
-cbar.set_label('Surface Mag Velocity',fontsize=fontsize+5)
+cbar.set_label('Surface Mag Velocity (m/s)',fontsize=fontsize+5)
 cbar.ax.tick_params(labelsize=fontsize)
 
 #plt.show()

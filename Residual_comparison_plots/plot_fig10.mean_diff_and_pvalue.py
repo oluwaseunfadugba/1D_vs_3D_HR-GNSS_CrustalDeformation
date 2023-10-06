@@ -118,39 +118,39 @@ kstest_ff_path_='/Users/oluwaseunfadugba/Documents/Projects/TsE_ValerieDiego/'+\
     'TsE_1D_vs_3D/Paper_Figures/Comparing_kstest_Residuals_with_median_diff/'
     
 xticks = [0,500,1000,1500]
-
+fontsize=140
 # plotting mean difference residuals
-funcs.plot_median_residual(axes=axes[0,0],models=models,attribute='pgd_res',
+funcs.plot_median_residual(axes=axes[0,0],models=models,attribute='pgd_res',fontsize=fontsize,
                             xticks=xticks,yticks=[1,0,-1,-2],subplt_label='A',
                             kstest_ff_path=kstest_ff_path_)
 
-funcs.plot_median_residual(axes=axes[1,0],models=models,attribute='tPGD_res',
+funcs.plot_median_residual(axes=axes[1,0],models=models,attribute='tPGD_res',fontsize=fontsize,
                             xticks=xticks,yticks=[40,20,0,-20],subplt_label='C',
                             kstest_ff_path=kstest_ff_path_,ylabel='s')
 
 funcs.plot_median_residual(axes=axes[2,0],models=models,attribute='sd_res',
-                            xticks=xticks,yticks=[2,0,-2],subplt_label='E',
+                            xticks=xticks,yticks=[2,0,-2],subplt_label='E',fontsize=fontsize,
                             kstest_ff_path=kstest_ff_path_)
 
-funcs.plot_median_residual(axes=axes[3,0],models=models,attribute='xcorr',rec_neg=0,
+funcs.plot_median_residual(axes=axes[3,0],models=models,attribute='xcorr',rec_neg=0,fontsize=fontsize,
                             xticks=xticks,yticks=[0.1,0,-0.1],subplt_label='G',ylabel='value',
                             kstest_ff_path=kstest_ff_path_,xlabel='distance (km)')
 
 
 # plotting p-value
-funcs.plot_median_residual(axes=axes[0,1],models=models,attribute='pgd_res',
+funcs.plot_median_residual(axes=axes[0,1],models=models,attribute='pgd_res',fontsize=fontsize,
                             xticks=xticks,yticks=[1,0.5,0],subplt_label='B',
                             kstest_ff_path=kstest_ff_path_,pvalue = 1)
 
-funcs.plot_median_residual(axes=axes[1,1],models=models,attribute='tPGD_res',
+funcs.plot_median_residual(axes=axes[1,1],models=models,attribute='tPGD_res',fontsize=fontsize,
                             xticks=xticks,yticks=[1,0.5,0],subplt_label='D',
                             kstest_ff_path=kstest_ff_path_,pvalue = 1)
 
-funcs.plot_median_residual(axes=axes[2,1],models=models,attribute='sd_res',
+funcs.plot_median_residual(axes=axes[2,1],models=models,attribute='sd_res',fontsize=fontsize,
                             xticks=xticks,yticks=[1,0.5,0],subplt_label='F',
                             kstest_ff_path=kstest_ff_path_,pvalue = 1)
 
-funcs.plot_median_residual(axes=axes[3,1],models=models,attribute='xcorr',
+funcs.plot_median_residual(axes=axes[3,1],models=models,attribute='xcorr',fontsize=fontsize,
                             xticks=xticks,yticks=[1,0.5,0],subplt_label='H',
                             kstest_ff_path=kstest_ff_path_,xlabel='distance (km)',pvalue = 1)
 
@@ -185,7 +185,7 @@ legend_elements.append(Line2D([0],[0], linewidth=20.0, linestyle='--', color='bl
                               alpha=1.0,label='$\delta_{|3D|-|1D|}$ = 0'))
 
 legend_elements.append(Line2D([0],[0], linewidth=20.0, linestyle='--', color='black', 
-                              alpha=1.0,label='p-value = 0'))
+                              alpha=1.0,label='p-value = 0.05'))
 
 plt.legend(handles=legend_elements, bbox_to_anchor=(1.17, 5.0 ), loc='upper left', 
             fontsize=160,frameon=False,labelspacing = 1)

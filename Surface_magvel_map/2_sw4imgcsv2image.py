@@ -124,7 +124,7 @@ def gif2mp4(gif):
 
 # Set the region for the plot to be slightly larger than the data bounds.
 region = [130,145.5,32,45]
-hotstart = 290
+hotstart = 300
 
 # Create basemap
 outputfilename= 'fig.map_full_iba_forwaveprop.png'
@@ -169,7 +169,7 @@ for tim in range(hotstart,365,5): #0,365,5
     im=ax.imshow(stadata,extent=region, cmap='whitejet_alpha', vmin=0, vmax=0.08,alpha=6)
     
     cbar=fig.colorbar(im,fraction=0.03, pad=0.02) #0.02
-    cbar.set_label('Surface Mag Velocity') 
+    cbar.set_label('Surface Mag Velocity (m/s)') 
     
     fontsize = 14
     ax.set_aspect(1.5) 
